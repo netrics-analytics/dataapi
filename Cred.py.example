@@ -1,0 +1,45 @@
+'''
+    This file has been created to store all the credentials at one place.
+
+    SETUP INSTRUCTIONS:
+    1. Copy this file to Cred.py: cp Cred.py.example Cred.py
+    2. Fill in your actual credentials below
+    3. NEVER commit Cred.py to version control (it's in .gitignore)
+'''
+
+''' StackAdapt GraphQL APIKey '''
+# Format 'apiKey'
+# Get your API key from StackAdapt dashboard
+APIKey = 'your-stackadapt-api-key-here'
+
+''' data.netrics Endpoint Credentials '''
+# Format "username": "password"
+# These are the HTTP Basic Auth credentials for the API endpoints
+apiUsers = {
+    "iMarketSolutions": "your-imarket-password-here",
+    "MarketStorm": "your-marketstorm-password-here"
+}
+
+''' SNOWFLAKE CONFIG'''
+from sqlalchemy import create_engine, text
+text = text
+
+# Snowflake Netrics Credentials
+user='YOUR_SNOWFLAKE_USER'
+password='YOUR_SNOWFLAKE_PASSWORD'
+account='YOUR_ACCOUNT_ID'
+warehouse='YOUR_WAREHOUSE'
+database='YOUR_DATABASE'
+schema='YOUR_SCHEMA'
+
+# Connecting to Snowflake
+def connectToSnowflake():
+    # Create the connection string
+    connection_string = (
+        f'snowflake://{user}:{password}@{account}/{database}/{schema}?warehouse={warehouse}'
+    )
+    print(connection_string)
+
+    # Create an SQLAlchemy engine
+    engine = create_engine(connection_string)
+    return engine

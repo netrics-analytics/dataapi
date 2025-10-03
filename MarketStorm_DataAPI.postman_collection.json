@@ -1,0 +1,354 @@
+{
+	"info": {
+		"_postman_id": "dataapi-marketstorm-2025",
+		"name": "MarketStorm Data API",
+		"description": "API collection for accessing StackAdapt and Snowflake conversion data via MarketStorm Flask API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "MarketStorm Endpoints",
+			"item": [
+				{
+					"name": "Conversion Journey",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{marketstorm_password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{marketstorm_username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "APIKey",
+								"value": "{{stackadapt_api_key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/conversionJourney?startDate={{start_date}}&endDate={{end_date}}&campaignIds=&trackerIds=",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"conversionJourney"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "{{start_date}}",
+									"description": "Format: YYYY-MM-DD"
+								},
+								{
+									"key": "endDate",
+									"value": "{{end_date}}",
+									"description": "Format: YYYY-MM-DD"
+								},
+								{
+									"key": "campaignIds",
+									"value": "",
+									"description": "Comma-separated campaign IDs (optional)"
+								},
+								{
+									"key": "trackerIds",
+									"value": "",
+									"description": "Comma-separated tracker IDs (optional)"
+								}
+							]
+						},
+						"description": "Retrieves conversion path data from StackAdapt GraphQL API including attribution details, click/impression counts, and campaign information."
+					},
+					"response": []
+				},
+				{
+					"name": "Advertiser Delivery Stats",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{marketstorm_password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{marketstorm_username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "APIKey",
+								"value": "{{stackadapt_api_key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/advertiserDeliveryStats?startDate={{start_date}}&endDate={{end_date}}&granularity=DAILY",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"advertiserDeliveryStats"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "{{start_date}}",
+									"description": "Format: YYYY-MM-DD"
+								},
+								{
+									"key": "endDate",
+									"value": "{{end_date}}",
+									"description": "Format: YYYY-MM-DD"
+								},
+								{
+									"key": "granularity",
+									"value": "DAILY",
+									"description": "Granularity: DAILY, WEEKLY, MONTHLY, etc."
+								}
+							]
+						},
+						"description": "Retrieves advertiser-level delivery statistics with customizable time granularity."
+					},
+					"response": []
+				},
+				{
+					"name": "Campaign Group Insights",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{marketstorm_password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{marketstorm_username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "APIKey",
+								"value": "{{stackadapt_api_key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/campaignGroupInsights?startDate={{start_date}}&endDate={{end_date}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"campaignGroupInsights"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "{{start_date}}",
+									"description": "Format: YYYY-MM-DD"
+								},
+								{
+									"key": "endDate",
+									"value": "{{end_date}}",
+									"description": "Format: YYYY-MM-DD"
+								}
+							]
+						},
+						"description": "Retrieves campaign group level metrics including budget allocation, pacing, and performance metrics."
+					},
+					"response": []
+				},
+				{
+					"name": "Campaign Insights",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{marketstorm_password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{marketstorm_username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "APIKey",
+								"value": "{{stackadapt_api_key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/campaignInsights?startDate={{start_date}}&endDate={{end_date}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"campaignInsights"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "{{start_date}}",
+									"description": "Format: YYYY-MM-DD"
+								},
+								{
+									"key": "endDate",
+									"value": "{{end_date}}",
+									"description": "Format: YYYY-MM-DD"
+								}
+							]
+						},
+						"description": "Retrieves individual campaign level metrics, status, audience targeting, and performance data."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for MarketStorm user accessing StackAdapt data"
+		},
+		{
+			"name": "iMarketSolutions Endpoints",
+			"item": [
+				{
+					"name": "iMarket Conversion Journey",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{imarket_password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{imarket_username}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/iMarketSolutions/conversionJourney?startDate={{start_date}}&endDate={{end_date}}&AdvertiserID=",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"iMarketSolutions",
+								"conversionJourney"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "{{start_date}}",
+									"description": "Format: YYYY-MM-DD"
+								},
+								{
+									"key": "endDate",
+									"value": "{{end_date}}",
+									"description": "Format: YYYY-MM-DD"
+								},
+								{
+									"key": "AdvertiserID",
+									"value": "",
+									"description": "Comma-separated advertiser IDs (optional)"
+								}
+							]
+						},
+						"description": "Retrieves conversion journey data from Snowflake database filtered by Phone Call, Form Submit, and SchedulerStarted conversion types. This endpoint is exclusive to iMarketSolutions user."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints restricted to iMarketSolutions user accessing Snowflake data"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://data.netrics.ai",
+			"type": "string"
+		},
+		{
+			"key": "marketstorm_username",
+			"value": "MarketStorm",
+			"type": "string"
+		},
+		{
+			"key": "marketstorm_password",
+			"value": "YOUR_MARKETSTORM_PASSWORD",
+			"type": "string"
+		},
+		{
+			"key": "imarket_username",
+			"value": "iMarketSolutions",
+			"type": "string"
+		},
+		{
+			"key": "imarket_password",
+			"value": "YOUR_IMARKET_PASSWORD",
+			"type": "string"
+		},
+		{
+			"key": "stackadapt_api_key",
+			"value": "Bearer YOUR_STACKADAPT_API_KEY",
+			"type": "string"
+		},
+		{
+			"key": "start_date",
+			"value": "2025-09-01",
+			"type": "string"
+		},
+		{
+			"key": "end_date",
+			"value": "2025-09-30",
+			"type": "string"
+		}
+	]
+}

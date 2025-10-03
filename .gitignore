@@ -1,0 +1,85 @@
+# Sensitive Files - NEVER COMMIT
+Cred.py
+*.pem
+*.key
+*.env
+.env.*
+secrets/
+credentials/
+
+# Python Virtual Environment
+FlaskWebVenv/
+venv/
+env/
+ENV/
+*.venv
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# Data Files
+*.csv
+*.xlsx
+*.xls
+*.json.bak
+data/
+*.db
+*.sqlite
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Diagnostic outputs
+diagnostic_*.log
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
